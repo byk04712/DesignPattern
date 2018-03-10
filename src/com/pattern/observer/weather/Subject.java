@@ -1,4 +1,4 @@
-package com.pattern.observer;
+package com.pattern.observer.weather;
 
 /**
  * 主题/通知 接口

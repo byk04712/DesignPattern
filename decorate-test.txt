@@ -1,0 +1,1 @@
+I konw the Decorator Pattern therefore I SURE!

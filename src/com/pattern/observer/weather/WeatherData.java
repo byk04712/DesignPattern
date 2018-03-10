@@ -1,4 +1,4 @@
-package com.pattern.observer;
+package com.pattern.observer.weather;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.pattern.observer;
+package com.pattern.observer.weather;
 
 /**
  * 此布告板根据 WeatherData 对象显示当前观测值

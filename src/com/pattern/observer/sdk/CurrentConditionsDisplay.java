@@ -1,6 +1,6 @@
 package com.pattern.observer.sdk;
 
-import com.pattern.observer.DisplayElement;
+import com.pattern.observer.weather.DisplayElement;
 
 import java.util.Observable;
 import java.util.Observer;
