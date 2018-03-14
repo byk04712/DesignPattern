@@ -12,7 +12,7 @@ public interface Command {
     public void execute();
 
     /**
-     * 取消
+     * 撤销功能
      */
     public void undo();
 }

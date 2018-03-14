@@ -25,7 +25,7 @@ public class StereOnWithCDCommand implements Command {
 
     @Override
     public void undo() {
-
+        this.stereo.off();
     }
 
     @Override

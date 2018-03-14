@@ -17,7 +17,7 @@ public class CeilingFanOffCommand implements Command {
 
     @Override
     public void undo() {
-
+        this.ceilingFan.on();
     }
 
     @Override
