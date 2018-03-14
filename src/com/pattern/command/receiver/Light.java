@@ -1,4 +1,4 @@
-package com.pattern.command.manufacturer;
+package com.pattern.command.receiver;
 
 public class Light {
 

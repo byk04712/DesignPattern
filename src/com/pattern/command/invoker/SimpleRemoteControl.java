@@ -1,9 +1,11 @@
-package com.pattern.command;
+package com.pattern.command.invoker;
 
 import com.pattern.command.command.Command;
 
 /**
+ * 简单遥控器
  * 假设我们有一个遥控器，它只有一个按钮和对应的插槽，可以控制一个装置
+ * 这个调用者持有一个命令对象，并在某个时间点调用命令对象的execute方法，将请求付诸行动
  */
 public class SimpleRemoteControl {
 

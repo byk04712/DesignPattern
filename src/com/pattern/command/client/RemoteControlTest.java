@@ -1,11 +1,15 @@
-package com.pattern.command;
+package com.pattern.command.client;
 
 import com.pattern.command.command.Command;
+import com.pattern.command.command.GarageDoorOpenCommand;
 import com.pattern.command.command.LightOnCommand;
-import com.pattern.command.manufacturer.Light;
+import com.pattern.command.invoker.SimpleRemoteControl;
+import com.pattern.command.receiver.GarageDoor;
+import com.pattern.command.receiver.Light;
 
 /**
  * 命令模式的客户
+ * 负责创建一个 Command 并设置其接收者
  */
 public class RemoteControlTest {
     public static void main(String[] args) {
@@ -23,6 +27,13 @@ public class RemoteControlTest {
         remoteControl.setCommand(lightOnCmd);
 
         // 模拟按下按钮
+        remoteControl.buttonWasPressed();
+
+        GarageDoor garageDoor = new GarageDoor();
+
+        Command garageDoorCommand = new GarageDoorOpenCommand(garageDoor);
+        remoteControl.setCommand(garageDoorCommand);
+
         remoteControl.buttonWasPressed();
     }
 }
