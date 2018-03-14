@@ -19,4 +19,9 @@ public class GarageDoorDownCommand implements Command {
     public void undo() {
 
     }
+
+    @Override
+    public String toString() {
+        return this.garageDoor.getName() +  " " + this.getClass().getSimpleName();
+    }
 }

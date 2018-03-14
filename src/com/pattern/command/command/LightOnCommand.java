@@ -32,4 +32,9 @@ public class LightOnCommand implements Command {
     public void undo() {
         light.off();
     }
+
+    @Override
+    public String toString() {
+        return this.light.getName() +  " " + this.getClass().getSimpleName();
+    }
 }

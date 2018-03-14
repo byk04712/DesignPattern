@@ -27,4 +27,9 @@ public class StereOnWithCDCommand implements Command {
     public void undo() {
 
     }
+
+    @Override
+    public String toString() {
+        return this.stereo.getName() +  " " + this.getClass().getSimpleName();
+    }
 }

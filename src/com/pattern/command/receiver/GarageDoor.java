@@ -5,23 +5,34 @@ package com.pattern.command.receiver;
  * Receiver
  */
 public class GarageDoor {
+
+    private String name;
+
+    public GarageDoor(String name) {
+        this.name = name;
+    }
+
     public void up() {
-        System.out.println("Garage Door is Open");
+        System.out.println(this.name + " is Open");
     }
 
     public void down() {
-        System.out.println("GarageDoor down");
+        System.out.println(this.name + " down");
     }
 
     public void stop() {
-        System.out.println("GarageDoor stop");
+        System.out.println(this.name + " stop");
     }
 
     public void lightOn() {
-        System.out.println("GarageDoor lightOn");
+        System.out.println(this.name + " lightOn");
     }
 
     public void lightOff() {
-        System.out.println("GarageDoor lightOff");
+        System.out.println(this.name + " lightOff");
+    }
+
+    public String getName() {
+        return name;
     }
 }

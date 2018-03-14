@@ -12,11 +12,16 @@ public class LightOffCommand implements Command {
 
     @Override
     public void execute() {
-        light.on();
+        light.off();
     }
 
     @Override
     public void undo() {
 
+    }
+
+    @Override
+    public String toString() {
+        return this.light.getName() +  " " + this.getClass().getSimpleName();
     }
 }

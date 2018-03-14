@@ -1,27 +1,38 @@
 package com.pattern.command.receiver;
 
 public class Stereo {
+
+    private String name;
+
+    public Stereo(String name) {
+        this.name = name;
+    }
+
     public void on() {
-        System.out.println("打开音响");
+        System.out.println(this.name + " 打开音响");
     }
 
     public void off() {
-        System.out.println("关闭音箱");
+        System.out.println(this.name + " 关闭音箱");
     }
 
     public void setCd() {
-        System.out.println("放置CD");
+        System.out.println(this.name + " 放置CD");
     }
 
     public void setDvd() {
-        System.out.println("放置DVD");
+        System.out.println(this.name + " 放置DVD");
     }
 
     public void setRadio() {
-        System.out.println("设置收音机");
+        System.out.println(this.name + " 设置收音机");
     }
 
     public void setVolume(int volume) {
-        System.out.println("设置音量 " + volume);
+        System.out.println(this.name + " 设置音量 " + volume);
+    }
+
+    public String getName() {
+        return name;
     }
 }

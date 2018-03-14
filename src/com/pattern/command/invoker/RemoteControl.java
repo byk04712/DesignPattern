@@ -6,19 +6,21 @@ import com.pattern.command.command.NoCommand;
 /**
  * 遥控器，处理7个开与关的命令
  */
-public class RemoteCommand {
+public class RemoteControl {
     private static int cmdSize = 7;
 
     private Command[] onCommands;
     private Command[] offCommands;
 
-    public RemoteCommand() {
+    public RemoteControl() {
         this.onCommands = new Command[cmdSize];
         this.offCommands = new Command[cmdSize];
 
+        // 遥控器出厂的时候是没有命令的，所以给个不执行任何命令的空对象
+        Command noCommand = new NoCommand();
         for (int i = 0; i < cmdSize; i++) {
-            onCommands[i] = new NoCommand();
-            offCommands[i] = new NoCommand();
+            onCommands[i] = noCommand;
+            offCommands[i] = noCommand;
         }
     }
 
@@ -54,7 +56,7 @@ public class RemoteCommand {
         StringBuffer buffer = new StringBuffer();
         buffer.append("---------- Remote Control ----------\n");
         for (int i = 0; i < cmdSize; i++) {
-            buffer.append("[slot " + i + "  on：" + this.onCommands[i].getClass().getSimpleName() + "   off：" + this.offCommands[i].getClass().getSimpleName() + "]");
+            buffer.append("[slot " + i + "  on：" + this.onCommands[i] + "   off：" + this.offCommands[i] + "]\n");
         }
         return buffer.toString();
     }

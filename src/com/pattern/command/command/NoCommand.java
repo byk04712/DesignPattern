@@ -10,4 +10,9 @@ public class NoCommand implements Command {
     public void undo() {
 
     }
+
+    @Override
+    public String toString() {
+        return "";
+    }
 }

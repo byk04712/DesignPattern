@@ -22,4 +22,9 @@ public class GarageDoorOpenCommand implements Command {
     @Override
     public void undo() {
     }
+
+    @Override
+    public String toString() {
+        return this.garageDoor.getName() +  " " + this.getClass().getSimpleName();
+    }
 }

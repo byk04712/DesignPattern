@@ -18,7 +18,7 @@ public class RemoteControlTest {
         SimpleRemoteControl remoteControl = new SimpleRemoteControl();
 
         // 现在创建一个电灯对象，此对象也就是请求接收者
-        Light light = new Light();
+        Light light = new Light("Kitchen");
 
         // 在这里创建了一个命令，然后将接收者传给他
         Command lightOnCmd = new LightOnCommand(light);
@@ -29,7 +29,7 @@ public class RemoteControlTest {
         // 模拟按下按钮
         remoteControl.buttonWasPressed();
 
-        GarageDoor garageDoor = new GarageDoor();
+        GarageDoor garageDoor = new GarageDoor("Garage");
 
         Command garageDoorCommand = new GarageDoorOpenCommand(garageDoor);
         remoteControl.setCommand(garageDoorCommand);
