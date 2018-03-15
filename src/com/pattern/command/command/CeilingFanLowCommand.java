@@ -2,24 +2,24 @@ package com.pattern.command.command;
 
 import com.pattern.command.receiver.CeilingFanWithState;
 
-public class CeilingFanOffCommand implements Command {
+public class CeilingFanLowCommand implements Command {
 
     private CeilingFanWithState ceilingFan;
     private int prevSpeed;
 
-    public CeilingFanOffCommand(CeilingFanWithState ceilingFan) {
+    public CeilingFanLowCommand(CeilingFanWithState ceilingFan) {
         this.ceilingFan = ceilingFan;
     }
 
     @Override
     public void execute() {
         prevSpeed = ceilingFan.getSpeed();
-        this.ceilingFan.off();
+        ceilingFan.low();
     }
 
     @Override
     public void undo() {
-        switch(prevSpeed) {
+        switch (prevSpeed) {
             case CeilingFanWithState.HIGH:
                 ceilingFan.high();
                 break;
@@ -39,5 +39,4 @@ public class CeilingFanOffCommand implements Command {
     public String toString() {
         return ceilingFan.getLocation() + " " + this.getClass().getSimpleName();
     }
-
 }

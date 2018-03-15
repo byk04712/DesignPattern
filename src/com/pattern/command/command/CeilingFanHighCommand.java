@@ -2,6 +2,9 @@ package com.pattern.command.command;
 
 import com.pattern.command.receiver.CeilingFanWithState;
 
+/**
+ * 风扇高速运行
+ */
 public class CeilingFanHighCommand implements Command {
 
     private CeilingFanWithState ceilingFan;
@@ -37,5 +40,10 @@ public class CeilingFanHighCommand implements Command {
                 ceilingFan.off();
                 break;
         }
+    }
+
+    @Override
+    public String toString() {
+        return ceilingFan.getLocation() + " " + this.getClass().getSimpleName();
     }
 }

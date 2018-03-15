@@ -39,18 +39,38 @@ public class CeilingFanWithState {
 
     public void high() {
         this.setHigh();
+        this.output();
     }
 
     public void medium() {
         this.setMedium();
+        this.output();
     }
 
     public void low() {
         this.setLow();
+        this.output();
     }
 
     public void off() {
         this.setOff();
+        this.output();
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    private void output() {
+        String label = "";
+        if (speed == HIGH)
+            label = "高速档";
+        else if (speed == MEDIUM)
+            label = "中速档";
+        else if (speed == LOW)
+            label = "低速档";
+        else if (speed == OFF)
+            label = "关闭";
+        System.out.println(location + " " + label);
+    }
 }

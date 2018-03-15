@@ -2,24 +2,28 @@ package com.pattern.command.command;
 
 import com.pattern.command.receiver.CeilingFanWithState;
 
-public class CeilingFanOffCommand implements Command {
+/**
+ * 风扇中速运行
+ */
+public class CeilingFanMediumCommand implements Command {
 
     private CeilingFanWithState ceilingFan;
     private int prevSpeed;
 
-    public CeilingFanOffCommand(CeilingFanWithState ceilingFan) {
+    public CeilingFanMediumCommand(CeilingFanWithState ceilingFan) {
         this.ceilingFan = ceilingFan;
     }
 
     @Override
     public void execute() {
+        // 先记录下当前的速度，然后在运行
         prevSpeed = ceilingFan.getSpeed();
-        this.ceilingFan.off();
+        ceilingFan.medium();
     }
 
     @Override
     public void undo() {
-        switch(prevSpeed) {
+        switch (prevSpeed) {
             case CeilingFanWithState.HIGH:
                 ceilingFan.high();
                 break;
@@ -39,5 +43,4 @@ public class CeilingFanOffCommand implements Command {
     public String toString() {
         return ceilingFan.getLocation() + " " + this.getClass().getSimpleName();
     }
-
 }
