@@ -1,6 +1,8 @@
-package com.pattern.combination;
+package com.pattern.iterator;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 
 public class PancakeHouseMenu {
     private ArrayList<MenuItem> menuItems;
@@ -19,7 +21,13 @@ public class PancakeHouseMenu {
         this.menuItems.add(menuItem);
     }
 
-    public ArrayList<MenuItem> getMenuItems() {
-        return this.menuItems;
+//    public ArrayList<MenuItem> getMenuItems() {
+//        return this.menuItems;
+//    }
+
+    // 用迭代器改写餐厅菜单
+    // 返回迭代器接口。客户不需要知道餐厅菜单是如何维护菜单的，也不需要知道迭代器是如何实现的。客户只需直接使用这个迭代器遍历菜单项即可
+    public Iterator<MenuItem> createIterator() {
+        return new DinerMenuIterator(this.menuItems.toArray(new MenuItem[this.menuItems.size()]));
     }
 }
