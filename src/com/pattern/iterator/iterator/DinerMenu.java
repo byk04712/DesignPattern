@@ -1,8 +1,8 @@
-package com.pattern.iterator;
+package com.pattern.iterator.iterator;
 
 import java.util.Iterator;
 
-public class DinerMenu {
+public class DinerMenu implements Menu{
     static final int MAX_ITEMS = 6;
     int numberOfItems = 0;
     MenuItem[] menuItems;
@@ -34,6 +34,7 @@ public class DinerMenu {
 
     // 用迭代器改写餐厅菜单
     // 返回迭代器接口。客户不需要知道餐厅菜单是如何维护菜单的，也不需要知道迭代器是如何实现的。客户只需直接使用这个迭代器遍历菜单项即可
+    @Override
     public Iterator<MenuItem> createIterator() {
         return new DinerMenuIterator(this.menuItems);
     }

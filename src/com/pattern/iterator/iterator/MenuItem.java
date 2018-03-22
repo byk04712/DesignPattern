@@ -1,4 +1,4 @@
-package com.pattern.iterator;
+package com.pattern.iterator.iterator;
 
 public class MenuItem {
     private String name;
