@@ -1,5 +1,7 @@
 package com.pattern.iterator.composite;
 
+import java.util.Iterator;
+
 /**
  * 菜单项
  */
@@ -44,5 +46,10 @@ public class MenuItem extends MenuComponent {
             System.out.print("(v)");
         System.out.println(",  " + this.getPrice());
         System.out.println("    --" + this.getDescription());
+    }
+
+    @Override
+    public Iterator<MenuComponent> createIterator() {
+        return new NullIterator();
     }
 }

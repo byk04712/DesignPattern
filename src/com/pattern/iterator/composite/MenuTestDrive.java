@@ -67,6 +67,7 @@ public class MenuTestDrive {
                 true,
                 3.89));
 
+        // 将甜点菜单添加到晚餐菜单下
         dinerMenu.add(dessertMenu);
 
         dessertMenu.add(new MenuItem(
@@ -121,6 +122,7 @@ public class MenuTestDrive {
                 0.89));
 
         Waitress waitress = new Waitress(allMenus);
-        waitress.printMenu();
+//        waitress.printMenu();
+        waitress.printVegetarianMenu();
     }
 }
