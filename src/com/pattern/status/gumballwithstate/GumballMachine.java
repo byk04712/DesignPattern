@@ -6,6 +6,8 @@ public class GumballMachine {
     private State hasQuarterState;
     private State soldState;
     private State soldOutState;
+    // 加入winner 状态
+    private State winnerState;
 
     private State state = soldOutState;
     private int count = 0;
@@ -16,6 +18,7 @@ public class GumballMachine {
         this.hasQuarterState = new HasQuarterState(this);
         this.soldOutState = new SoldOutState(this);
         this.soldState = new SoldState(this);
+        this.winnerState = new WinnerState(this);
 
         if (numberGumballs > 0) {
             state = noQuarterState;
@@ -87,5 +90,9 @@ public class GumballMachine {
 
     public int getCount() {
         return count;
+    }
+
+    public State getWinnerState() {
+        return winnerState;
     }
 }
