@@ -4,7 +4,7 @@ public class WinnerState implements State {
 
     private GumballMachine gumballMachine;
 
-    private WinnerState(GumballMachine gumballMachine) {
+    public WinnerState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
     }
 
@@ -30,13 +30,13 @@ public class WinnerState implements State {
         if (gumballMachine.getCount() > 0) {
             this.gumballMachine.releaseBall();
             if (gumballMachine.getCount() > 0) {
-                this.gumballMachine.setState(this.gumballMachine.getNoQuarter());
+                this.gumballMachine.setState(this.gumballMachine.getNoQuarterState());
             } else {
-                this.gumballMachine.setState(this.gumballMachine.getSoldOutQuarterState());
+                this.gumballMachine.setState(this.gumballMachine.getSoldOutState());
                 System.out.println("Oops, out of gumballs!");
             }
         } else {
-            this.gumballMachine.setState(this.gumballMachine.getSoldOutQuarterState());
+            this.gumballMachine.setState(this.gumballMachine.getSoldOutState());
         }
     }
 }

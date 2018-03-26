@@ -1,5 +1,7 @@
 package com.pattern.status.gumballwithstate;
 
+import java.util.Random;
+
 public class HasQuarterState implements State {
 
     // 增加一个随机数产生器，产生10%赢的机会

@@ -1,6 +1,6 @@
 package com.pattern.status.gumball;
 
-public class GumballMachineTestDrive {
+public class GMTestDrive {
     public static void main(String[] args) {
         GumballMachine gumballMachine = new GumballMachine(5);
 
@@ -26,6 +26,5 @@ public class GumballMachineTestDrive {
         gumballMachine.turnCrank();
 
         System.out.println(gumballMachine);
-
     }
 }

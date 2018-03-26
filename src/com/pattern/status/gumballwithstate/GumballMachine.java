@@ -48,6 +48,11 @@ public class GumballMachine {
         }
     }
 
+    public void refill(int count) {
+        this.count = count;
+        state = noQuarterState;
+    }
+
     public void setNoQuarterState(State noQuarterState) {
         this.noQuarterState = noQuarterState;
     }
