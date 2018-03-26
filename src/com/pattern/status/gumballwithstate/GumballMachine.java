@@ -100,4 +100,28 @@ public class GumballMachine {
     public State getWinnerState() {
         return winnerState;
     }
+
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("\nMighty Gumball, Inc.");
+        sb.append("\nJava-enabled Standing Gumball Model #2004\n");
+        sb.append("Inventory:" + count + " gumball");
+
+        if (count != 1) {
+            sb.append("s");
+        }
+        sb.append("\nMachine is ");
+        if (state == soldOutState)
+            sb.append("sold out");
+        else if (state == noQuarterState)
+            sb.append("waiting for quarter");
+        else if (state == hasQuarterState)
+            sb.append("waiting for turn of crank");
+        else if (state == soldState)
+            sb.append("delivering a gumball");
+
+        sb.append("\n");
+        return sb.toString();
+    }
 }
