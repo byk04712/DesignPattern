@@ -2,6 +2,8 @@ package com.pattern.proxy.rmi;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 /**
@@ -14,8 +16,8 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class MyRemoteImpl extends UnicastRemoteObject implements MyRemote {
 
-    public MyRemoteImpl() throws RemoteException {
-
+    public MyRemoteImpl(int port) throws RemoteException {
+        super(port);
     }
 
     /**
@@ -25,14 +27,18 @@ public class MyRemoteImpl extends UnicastRemoteObject implements MyRemote {
      */
     @Override
     public String sayHello() {
+        System.out.println("Server sayHello()");
         return "Server says, Hey";
     }
 
     public static void main(String[] args) {
         try {
             // 用 RMI Registry 注册此服务
-            MyRemote service = new MyRemoteImpl();
-            Naming.rebind("RemoteHello", service);
+            MyRemote service = new MyRemoteImpl(9981);
+            // Naming.rebind("RemoteHello", service);
+            Registry registry = LocateRegistry.createRegistry(9981);
+            registry.bind("RemoteHello", service);
+            System.out.println("Remote Service Object is bound successfully!");
         } catch (Exception e) {
             e.printStackTrace();
         }

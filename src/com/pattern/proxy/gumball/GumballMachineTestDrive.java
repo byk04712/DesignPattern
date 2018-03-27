@@ -1,4 +1,4 @@
-package com.pattern.proxy;
+package com.pattern.proxy.gumball;
 
 public class GumballMachineTestDrive {
     public static void main(String[] args) {

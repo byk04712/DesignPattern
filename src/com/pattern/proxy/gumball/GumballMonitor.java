@@ -1,4 +1,4 @@
-package com.pattern.proxy;
+package com.pattern.proxy.gumball;
 
 /**
  * 糖果监视器
