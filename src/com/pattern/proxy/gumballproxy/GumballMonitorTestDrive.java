@@ -4,20 +4,22 @@ import java.rmi.Naming;
 
 public class GumballMonitorTestDrive {
     public static void main(String[] args) {
-        String[] locations = {
-                "rmi://santafe.mightygumball.com/gumballmachine",
-                "rmi://boulder.mightlygumball.com/gumballmachine",
-                "rmi://seattle.mightlygumball.com/gumballmachine"
-        };
+        String[] locations = {"Beijing", "Shanghai", "Shenzhen"};
+        int port = 8890;
 
         GumballMonitor[] monitors = new GumballMonitor[locations.length];
 
         for (int i = 0; i < locations.length; i++) {
             try {
-                GumballMachineRemote machine = (GumballMachineRemote) Naming.lookup(locations[i]);
+                GumballMachineRemote machine = (GumballMachineRemote) Naming.lookup("rmi://127.0.0.1:" + (port + i) + "/gumballmachine_" + locations[i]);
+                monitors[i] = new GumballMonitor(machine);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+
+        for (int i = 0; i < monitors.length; i++) {
+            monitors[i].report();
         }
     }
 }

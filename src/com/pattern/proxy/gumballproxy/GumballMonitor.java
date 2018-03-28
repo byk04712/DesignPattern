@@ -12,6 +12,7 @@ public class GumballMonitor {
             System.out.println("Gumball Machine：" + machine.getLocation());
             System.out.println("Current inventory：" + machine.getCount() + " gumballs");
             System.out.println("Current state：" + machine.getState());
+            System.out.println();
         } catch (Exception e) {
             e.printStackTrace();
         }
