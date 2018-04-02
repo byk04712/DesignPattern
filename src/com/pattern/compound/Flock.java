@@ -6,7 +6,7 @@ import java.util.Iterator;
 /**
  * 组合模式
  */
-public class Flock implements Quackable{
+public class Flock implements Quackable {
 
     private ArrayList<Quackable> quackers = new ArrayList<Quackable>();
 
@@ -22,5 +22,20 @@ public class Flock implements Quackable{
             Quackable quacker = iter.next();
             quacker.quack();
         }
+        notifyObservers();
     }
+
+    @Override
+    public void registerObserver(Observer observer) {
+        Iterator<Quackable> iterator = this.quackers.iterator();
+        while (iterator.hasNext()) {
+            iterator.next().registerObserver(observer);
+        }
+    }
+
+    @Override
+    public void notifyObservers() {
+
+    }
+
 }

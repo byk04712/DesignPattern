@@ -15,7 +15,33 @@ public class DuckSimulator {
         // duckSimulator.simulateWithFactory(countingDuckFactory);
 
         // 组合模式
-        duckSimulator.simulateWithComposite(countingDuckFactory);
+        // duckSimulator.simulateWithComposite(countingDuckFactory);
+
+        // 监听者模式
+        duckSimulator.simulateWithObserver(countingDuckFactory);
+    }
+
+    private void simulateWithObserver(AbstractDuckFactory duckFactory) {
+        Quackable mallardDuck = duckFactory.createMallardDuck();
+        Quackable redheadDuck = duckFactory.createRedheadDuck();
+        Quackable duckCall = duckFactory.createDuckCall();
+        Quackable rubberDuck = duckFactory.createRubberDuck();
+        Quackable gooseDuck = duckFactory.createDuckCall();
+
+        Flock flockOfDucks = new Flock();
+        flockOfDucks.add(mallardDuck);
+        flockOfDucks.add(redheadDuck);
+        flockOfDucks.add(duckCall);
+        flockOfDucks.add(rubberDuck);
+        flockOfDucks.add(gooseDuck);
+
+        System.out.println("\nDuck Simulator: With Observer");
+        Quacklogist quacklogist = new Quacklogist();
+        flockOfDucks.registerObserver(quacklogist);
+
+        simulate(flockOfDucks);
+
+        System.out.println("\nThe ducks quacked " + QuackCounter.getQuacks() + " times");
     }
 
     // 组合模式

@@ -11,17 +11,36 @@ public class QuackCounter implements Quackable {
     // 用一个静态变量记录跟踪所有呱呱叫次数
     private static int numberOfQuacks;
 
+    private Observable observable;
+
     public QuackCounter(Quackable quackable) {
         this.quackable = quackable;
+        this.observable = new Observable(this);
     }
 
     @Override
     public void quack() {
         quackable.quack();
         numberOfQuacks++;
+        notifyObservers();
     }
 
     public static int getQuacks() {
         return numberOfQuacks;
+    }
+
+    @Override
+    public void registerObserver(Observer observer) {
+        this.observable.registerObserver(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        this.observable.notifyObservers();
+    }
+
+    @Override
+    public String toString() {
+        return quackable.toString();
     }
 }
