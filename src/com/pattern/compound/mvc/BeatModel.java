@@ -135,7 +135,8 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
 
     @Override
     public void removeObserver(BeatObserver o) {
-        this.beatObservers.remove(o);
+        if (beatObservers.indexOf(o) >= 0)
+            this.beatObservers.remove(o);
     }
 
     @Override
@@ -145,6 +146,7 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
 
     @Override
     public void removeObserver(BPMObserver o) {
+        if (bpmObservers.indexOf(o) >= 0)
         this.bpmObservers.remove(o);
     }
 
