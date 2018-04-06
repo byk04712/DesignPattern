@@ -1,4 +1,4 @@
-# 主要讲解java的设计模式
+# 主要讲解设计模式
 
 - observer 观察者模式
 - strategy 策略模式
@@ -14,6 +14,8 @@
 - state 状态模式
 - proxy 代理模式
 - compound 复合模式
+- [bridge 桥接模式](./docs/Bridge.md)
+
 
 
 # 策略模式
@@ -218,6 +220,7 @@
     - 组合模式（Composite）
     - 外观模式（Facade）
     - 适配器模式（Adapter）
+    - 桥接模式（Bridge）
 
 # 使用设计模式时注意的要点
 
